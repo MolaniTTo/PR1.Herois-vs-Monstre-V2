@@ -105,6 +105,74 @@ namespace Functions
 
         }
 
+        //Personalitzada
+
+        public static void Personalized(ref int VidP, ref int AtaP, ref int RedP, int vidaMin, int vidaMax, int ataqueMin, int ataqueMax, int reduccionMin, int reduccionMax, string NomPersonatges)
+        {
+            Console.Clear();
+
+            int intents = 3;
+
+            do
+            {
+                Console.WriteLine($"Introdueix la vida de {NomPersonatges} [{vidaMin}-{vidaMax}]: ");
+                VidP = Convert.ToInt32(Console.ReadLine());
+                if (VidP > vidaMax || VidP < vidaMin)
+                {
+                    Console.WriteLine("Introdueix els valors dins del rang!");
+                    intents--;
+                }
+
+            } while (VidP > vidaMax || VidP < vidaMin && intents > 0);
+            if (intents <= 0) { Console.WriteLine("Vida minima introduida!"); VidP = vidaMin; }
+            intents = 3;
+
+            do
+            {
+                Console.WriteLine($"Introdueix l'atac de {NomPersonatges} [{ataqueMin}-{ataqueMax}]: ");
+                AtaP = Convert.ToInt32(Console.ReadLine());
+                if (AtaP > ataqueMax || AtaP < ataqueMin)
+                {
+                    Console.WriteLine("Introdueix els valors dins del rang!");
+                    intents--;
+                }
+
+            } while (AtaP > ataqueMax || AtaP < ataqueMin && intents > 0);
+            if (intents <= 0) { Console.WriteLine("Atac minim introduit!"); AtaP = ataqueMin; }
+            intents = 3;
+
+            do
+            {
+                Console.WriteLine($"Introdueix la reducció de dany de {NomPersonatges} (valor percentual): [{reduccionMin}-{reduccionMax}]%: ");
+                RedP = Convert.ToInt32(Console.ReadLine());
+                if (RedP > reduccionMax || RedP < reduccionMin)
+                {
+                    Console.WriteLine("Introdueix els valors dins del rang!");
+                    intents--;
+                }
+
+            } while (RedP > reduccionMax || RedP < reduccionMin && intents > 0);
+            if (intents <= 0) { Console.WriteLine("Reduccio de dany minima introduida!"); RedP = reduccionMin; }
+            intents = 3;
+
+
+
+
+        }
+
+        public static void Personalized(ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, ref int VidM, ref int AtaP1, ref int AtaP2, ref int AtaP3, ref int AtaP4, ref int AtaM, ref int RedP1, ref int RedP2, ref int RedP3, ref int RedP4, ref int RedM, ref string[] personatges, ref string[] copiapersonatges, ref int choose, ref int atacCritic, ref int fallarAtac)
+        {
+            Personalized(ref VidP1, ref AtaP1, ref RedP1, 1500, 2000, 180, 300, 25, 40, personatges[0]);
+            Personalized(ref VidP2, ref AtaP2, ref RedP2, 3000, 3750, 150, 250, 35, 45, personatges[1]);
+            Personalized(ref VidP3, ref AtaP3, ref RedP3, 1000, 1500, 300, 350, 20, 35, personatges[2]);
+            Personalized(ref VidP4, ref AtaP4, ref RedP4, 2000, 2500, 70, 120, 25, 40, personatges[3]);
+            Personalized(ref VidM, ref AtaM, ref RedM, 9000, 12000, 250, 400, 20, 30, "Monstre");
+
+        }
+
+
+
+
 
 
 
