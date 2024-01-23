@@ -40,6 +40,23 @@ namespace Functions
         }
 
 
+        //Noms personatges
+        public static string[] Noms(string[] personatges)
+        {
+            Console.Clear();
+            for (int i = 0; i < personatges.Length; i++)
+            {
+                Console.WriteLine($"Introdueix el nom del personatge {i + 1}:");
+
+                personatges[i] = Console.ReadLine();
+            }
+
+            return personatges;
+        }
+
+
+
+
 
     }
 
