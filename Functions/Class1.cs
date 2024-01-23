@@ -486,6 +486,18 @@ namespace Functions
 
         }
 
+        public static int AtacCritic(ref int atacCritic)
+        {
+
+            Random rnd = new Random();
+            atacCritic = rnd.Next(1, 101);
+            return atacCritic;
+
+
+        }
+
+
+
 
 
 
