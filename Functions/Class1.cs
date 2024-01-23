@@ -471,6 +471,25 @@ namespace Functions
 
         }
 
+        static void End(ref int VidM, ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, string[] personatges, int choose)
+        {
+            if (VidM <= 0) { Console.WriteLine($"Els herois {personatges[0]},{personatges[1]}, {personatges[2]} i  {personatges[3]} han derrotat al monstre!"); Console.WriteLine(); }
+
+            else { Console.WriteLine(); Console.WriteLine($"El monstre ha derrotat als herois :("); Console.WriteLine(); }
+
+        }
+
+        static void End(int intents, int choose)
+        {
+            Console.Clear();
+            Console.WriteLine("Has fallat massa cops, ADEU!");
+
+        }
+
+
+
+
+
 
 
 
