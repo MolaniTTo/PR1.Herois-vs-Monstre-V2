@@ -219,6 +219,74 @@ namespace Functions
             return false;
 
         }
+        static void Atac(string personatge, int AtaP1, int AtaP2, int AtaP3, int AtaP4, int RedM, string[] personatges, ref int VidM, ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, int choose, int atacCritic, int fallarAtac)
+        {
+            AtacCritic(ref atacCritic);
+            FallarAtac(ref fallarAtac);
+
+            if ((atacCritic <= 10 && fallarAtac <= 5 && fallarAtac >= 1) || (atacCritic > 10 && fallarAtac <= 5 && fallarAtac >= 1)) { Console.WriteLine("Ha fallat l'atac"); }
+
+            else if (atacCritic <= 10 && fallarAtac > 5)
+            {
+                Console.WriteLine("Atac critic!");
+                if (personatge.Equals(personatges[0]))
+                {
+                    VidM -= (AtaP1 * 2) * (100 - RedM) / 100;
+                    Console.WriteLine($"{personatge} ataca al monstre amb {AtaP1}. El Monstre es defensa i rep només {(AtaP1 * 2) * (100 - RedM) / 100}."); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose);
+                }
+
+                else if (personatge.Equals(personatges[1]))
+                {
+                    VidM -= (AtaP2 * 2) * (100 - RedM) / 100;
+                    Console.WriteLine($"{personatge} ataca al monstre amb {AtaP2}. El Monstre es defensa i rep només {(AtaP2 * 2) * (100 - RedM) / 100}."); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose);
+                }
+
+                else if (personatge.Equals(personatges[2]))
+                {
+                    VidM -= (AtaP3 * 2) * (100 - RedM) / 100;
+                    Console.WriteLine($"{personatge} ataca al monstre amb {AtaP3}. El Monstre es defensa i rep només {(AtaP3 * 2) * (100 - RedM) / 100}."); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose);
+                }
+
+                else if (personatge.Equals(personatges[3]))
+                {
+                    VidM -= (AtaP4 * 2) * (100 - RedM) / 100;
+                    Console.WriteLine($"{personatge} ataca al monstre amb {AtaP4}. El Monstre es defensa i rep només {(AtaP4 * 2) * (100 - RedM) / 100}."); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose);
+                }
+
+
+            }
+
+            else if (atacCritic > 10 && fallarAtac > 5)
+            {
+                if (personatge.Equals(personatges[0]))
+                {
+                    VidM -= (AtaP1 * (100 - RedM) / 100);
+                    Console.WriteLine($"{personatge} ataca al monstre amb {AtaP1}. El Monstre es defensa i rep només {(AtaP1 * (100 - RedM) / 100)}."); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose);
+                }
+
+                else if (personatge.Equals(personatges[1]))
+                {
+                    VidM -= (AtaP2 * (100 - RedM) / 100);
+                    Console.WriteLine($"{personatge} ataca al monstre amb {AtaP2}. El Monstre es defensa i rep només {(AtaP2 * (100 - RedM) / 100)}."); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose);
+                }
+
+                else if (personatge.Equals(personatges[2]))
+                {
+                    VidM -= (AtaP3 * (100 - RedM) / 100);
+                    Console.WriteLine($"{personatge} ataca al monstre amb {AtaP3}. El Monstre es defensa i rep només {(AtaP3 * (100 - RedM) / 100)}."); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose);
+                }
+
+                else if (personatge.Equals(personatges[3]))
+                {
+                    VidM -= (AtaP4 * (100 - RedM) / 100);
+                    Console.WriteLine($"{personatge} ataca al monstre amb {AtaP4}. El Monstre es defensa i rep només {(AtaP4 * (100 - RedM) / 100)}."); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose);
+                }
+
+
+            }
+
+        }
+
 
 
 
