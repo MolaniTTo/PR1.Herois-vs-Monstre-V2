@@ -272,15 +272,16 @@ namespace Functions
 
 
                 if (HB1 > 3) { Console.WriteLine(); Console.WriteLine($"El monstre esta noquejat per {personatges[0]}, no por atacar!"); Console.WriteLine(); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose); }
-                else if (VidM > 0 && HB1 < 3) { AtacMonstre(ref VidP1, ref VidP2, ref VidP3, ref VidP4, ref VidM, AtaP1, AtaP2, AtaP3, AtaP4, AtaM, RedP1, RedP2, RedP3, RedP4, RedM, personatges, copiapersonatges, CountHB, choose); }
+                else if (VidM > 0 && HB1 < 3) { AtacMonstre(ref VidP1, ref VidP2, ref VidP3, ref VidP4, ref VidM, AtaM, RedP1, RedP2, RedP3, RedP4, personatges, copiapersonatges, CountHB, choose); }
 
-                roudValidations(VidP1, VidP2, VidP3, VidP4, VidM, AtaP1, AtaP2, AtaP3, AtaP4, AtaM, RedP1, RedP2, RedP3, RedP4, RedM, personatges, copiapersonatges, ref HB1, ref HB2, ref HB3, ref HB4, ref CountHB, ref auxRedP2);
+                roudValidations( RedP1,  RedP2,  RedP3,  RedP4, ref  HB1, ref  HB2, ref  HB3, ref  HB4, ref  CountHB);
                 torns++;
 
             }
 
 
         }
+
 
 
         static bool PersonatgeViu(string[] personatges, int VidP1, int VidP2, int VidP3, int VidP4, string personatge)
@@ -452,7 +453,7 @@ namespace Functions
 
         }
 
-        static void AtacMonstre(ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, ref int VidM, int AtaP1, int AtaP2, int AtaP3, int AtaP4, int AtaM, int RedP1, int RedP2, int RedP3, int RedP4, int RedM, string[] personatges, string[] copiapersonatges, int CountHB, int choose)
+        static void AtacMonstre(ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, ref int VidM, int AtaM, int RedP1, int RedP2, int RedP3, int RedP4, string[] personatges, string[] copiapersonatges, int CountHB, int choose)
         {
             RedP2 = (CountHB != 0) ? 100 : RedP2;
             //afegir la habilitat especial de defensa del barbar
@@ -492,7 +493,7 @@ namespace Functions
         }
 
 
-        static void roudValidations(int VidP1, int VidP2, int VidP3, int VidP4, int VidM, int AtaP1, int AtaP2, int AtaP3, int AtaP4, int AtaM, int RedP1, int RedP2, int RedP3, int RedP4, int RedM, string[] personatges, string[] copiapersonatges, ref int HB1, ref int HB2, ref int HB3, ref int HB4, ref int CountHB, ref int auxRedP2)
+        static void roudValidations( int RedP1, int RedP2, int RedP3, int RedP4, ref int HB1, ref int HB2, ref int HB3, ref int HB4, ref int CountHB)
         {
 
             if (RedP1 >= 50 && RedP1 <= 80) { RedP1 /= 2; }
