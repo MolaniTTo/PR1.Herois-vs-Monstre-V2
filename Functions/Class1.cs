@@ -364,6 +364,29 @@ namespace Functions
 
         }
 
+        static void AtacMonstre(ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, ref int VidM, int AtaP1, int AtaP2, int AtaP3, int AtaP4, int AtaM, int RedP1, int RedP2, int RedP3, int RedP4, int RedM, string[] personatges, string[] copiapersonatges, int CountHB, int choose)
+        {
+            RedP2 = (CountHB != 0) ? 100 : RedP2;
+            //afegir la habilitat especial de defensa del barbar
+            VidP1 -= (AtaM * (100 - RedP1) / 100);
+            VidP2 -= (AtaM * (100 - RedP2) / 100);
+            VidP3 -= (AtaM * (100 - RedP3) / 100);
+            VidP4 -= (AtaM * (100 - RedP4) / 100);
+
+            Thread.Sleep(1500);
+            Console.Clear();
+            Console.WriteLine($"El monstre ataca a {personatges[0]}, {personatges[1]}, {personatges[2]}, i a {personatges[3]} amb {AtaM} de dany!");
+            Console.WriteLine();
+            if (VidP1 > 0) { Console.WriteLine($"{personatges[0]} es defensa i rep només {(AtaM * (100 - RedP1) / 100)} de dany."); }
+            if (VidP2 > 0) { Console.WriteLine($"{personatges[1]} es defensa i rep només {(AtaM * (100 - RedP2) / 100)} de dany."); }
+            if (VidP3 > 0) { Console.WriteLine($"{personatges[2]} es defensa i rep només {(AtaM * (100 - RedP3) / 100)} de dany."); }
+            if (VidP4 > 0) { Console.WriteLine($"{personatges[3]} es defensa i rep només {(AtaM * (100 - RedP4) / 100)} de dany."); }
+
+            validateVidasHerois(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose);
+
+        }
+
+
 
 
 
