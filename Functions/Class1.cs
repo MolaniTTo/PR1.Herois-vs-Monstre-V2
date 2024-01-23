@@ -195,6 +195,36 @@ namespace Functions
 
         }
 
+        static bool PersonatgeViu(string[] personatges, int VidP1, int VidP2, int VidP3, int VidP4, string personatge)
+        {
+            for (int i = 0; i < personatges.Length; i++)
+            {
+                if (personatges[i] == personatge)
+                {
+                    switch (i)
+                    {
+                        case 0:
+                            return VidP1 > 0;
+                        case 1:
+                            return VidP2 > 0;
+                        case 2:
+                            return VidP3 > 0;
+                        case 3:
+                            return VidP4 > 0;
+                        default:
+                            return false;
+                    }
+                }
+            }
+            return false;
+
+        }
+
+
+
+
+
+
 
 
 
