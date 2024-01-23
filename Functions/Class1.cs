@@ -287,6 +287,43 @@ namespace Functions
 
         }
 
+        public static int Defensa(string personatge, ref int RedP1, ref int RedP2, ref int RedP3, ref int RedP4, string[] personatges)
+        {
+            if (personatge.Equals(personatges[0]))
+            {
+                RedP1 *= 2;
+                Console.WriteLine($"{personatge} es protegeix del monstre i duplica la seva reduccio de dany pel proxim atac");
+                return RedP1;
+            }
+
+            else if (personatge.Equals(personatges[1]))
+            {
+
+                RedP2 *= 2;
+                Console.WriteLine($"{personatge} es protegeix del monstre i duplica la seva reduccio de dany pel proxim atac");
+                return RedP2;
+            }
+
+            else if (personatge.Equals(personatges[2]))
+            {
+                RedP3 *= 2;
+                Console.WriteLine($"{personatge} es protegeix del monstre i duplica la seva reduccio de dany pel proxim atac");
+                return RedP3;
+            }
+
+            else if (personatge.Equals(personatges[3]))
+            {
+                RedP4 *= 2;
+                Console.WriteLine($"{personatge} es protegeix del monstre i duplica la seva reduccio de dany pel proxim atac");
+                return RedP4;
+            }
+            else { return 0; }
+
+        }
+
+
+
+
 
 
 
