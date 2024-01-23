@@ -321,6 +321,51 @@ namespace Functions
 
         }
 
+        public static int HabilitatEspecial(ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, ref int VidM, string personatge, int AtaP3, int RedP2, string[] personatges, ref int HB1, ref int HB2, ref int HB3, ref int HB4, ref int CountHB, ref int auxRedP2)
+        {
+
+
+            if (personatge.Equals(personatges[0]))
+            {
+                HB1 = 5;
+                Console.WriteLine($"{personatge} noqueja el monstre durant 2 torns (no pot atacar)");
+                return HB1;
+            }
+
+            else if (personatge.Equals(personatges[1]))
+            {
+                HB2 = 5;
+                auxRedP2 = RedP2;
+                CountHB = 3;
+                Console.WriteLine($"{personatge} augmenta la seva defensa al 100% durant 3 torns");
+                return HB2;
+            }
+
+            else if (personatge.Equals(personatges[2]))
+            {
+                HB3 = 5;
+                VidM -= AtaP3 * 3;
+                Console.WriteLine($"{personatge} dispara una bola de foc que fa {AtaP3 * 3} de dany");
+                return HB3;
+            }
+
+            else if (personatge.Equals(personatges[3]))
+            {
+                HB4 = 5;
+                Console.WriteLine($"{personatge} cura 500 de vida a tots els personatges");
+                VidP1 += 500;
+                VidP2 += 500;
+                VidP3 += 500;
+                VidP4 += 500;
+                return HB4;
+
+            }
+            else { return 0; }
+
+        }
+
+
+
 
 
 
