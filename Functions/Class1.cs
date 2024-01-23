@@ -462,6 +462,18 @@ namespace Functions
 
         }
 
+        static void validateVidasMonstre(ref int VidM, ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, string[] personatges, int choose)
+        {
+            Console.WriteLine();
+            if (VidM <= 0) { VidM = 0; Console.WriteLine($"Vida restant del monstre: {VidM}, esta mort"); End(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose); }
+            else { Console.WriteLine($"Vida restant del monstre: {VidM}"); }
+
+
+        }
+
+
+
+
 
 
 
