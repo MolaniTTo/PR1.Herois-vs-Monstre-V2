@@ -195,6 +195,94 @@ namespace Functions
 
         }
 
+        //Batalla
+        public static void Batalla(ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, ref int VidM, ref int AtaP1, ref int AtaP2, ref int AtaP3, ref int AtaP4, ref int AtaM, ref int RedP1, ref int RedP2, ref int RedP3, ref int RedP4, ref int RedM, ref string[] personatges, ref string[] copiapersonatges, ref int choose, ref int atacCritic, ref int fallarAtac)
+
+        {
+            int torns = 1, act = 0, intents = 3;
+            int HB1 = 0, HB2 = 0, HB3 = 0, HB4 = 0;
+
+            while ((VidP1 > 0 || VidP2 > 0 || VidP3 > 0 || VidP4 > 0) && (VidM > 0))
+            {
+                Console.WriteLine();
+                Console.WriteLine("Torn " + torns);
+
+                // Generar Ordre Aleatori
+
+                GenerarOrdreAtac(copiapersonatges);
+
+
+                foreach (string personatge in copiapersonatges)
+                {
+                    if ((VidP1 < 0 && VidP2 < 0 && VidP3 < 0 && VidP4 < 0) || (VidM == 0)) { break; }
+                    if (PersonatgeViu(personatges, VidP1, VidP2, VidP3, VidP4, personatge))
+                    {
+                        do
+                        {
+                            Console.WriteLine();
+                            Console.WriteLine($"{personatge}, selecciona l'accio:");
+
+                            Console.WriteLine("1. Atacar");
+                            Console.WriteLine("2. Protegir-se");
+                            if (personatge.Equals(personatges[0]) && HB1 != 0) { Console.WriteLine($"3. Habilitat especial DESHABILITADA, queden {HB1} torn/s"); }
+                            else if (personatge.Equals(personatges[1]) && HB2 != 0) { Console.WriteLine($"3. Habilitat especial DESHABILITADA, queden {HB2} torn/s"); }
+                            else if (personatge.Equals(personatges[2]) && HB3 != 0) { Console.WriteLine($"3. Habilitat especial DESHABILITADA, queden {HB3} torn/s"); }
+                            else if (personatge.Equals(personatges[3]) && HB4 != 0) { Console.WriteLine($"3. Habilitat especial DESHABILITADA, queden {HB4} torn/s"); }
+                            else { Console.WriteLine("3. Habilitat especial"); }
+
+
+                            // Obtener la acción del usuario
+                            act = Convert.ToInt32(Console.ReadLine());
+
+                            switch (act)
+                            {
+                                case 1:
+                                    Atac(personatge, AtaP1, AtaP2, AtaP3, AtaP4, RedM, personatges, ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, choose, atacCritic, fallarAtac);
+                                    break;
+
+                                case 2:
+                                    Defensa(personatge, ref RedP1, ref RedP2, ref RedP3, ref RedP4, personatges);
+                                    break;
+
+                                case 3:
+                                    if (personatge.Equals(personatges[0]) && HB1 != 0) { Console.WriteLine($"{personatges[0]} passa el torn!"); }
+                                    else if (personatge.Equals(personatges[1]) && HB2 != 0) { Console.WriteLine($"{personatges[1]} passa el torn!"); }
+                                    else if (personatge.Equals(personatges[2]) && HB3 != 0) { Console.WriteLine($"{personatges[2]} passa el torn!"); }
+                                    else if (personatge.Equals(personatges[3]) && HB4 != 0) { Console.WriteLine($"{personatges[3]} passa el torn!"); }
+                                    else { HabilitatEspecial(ref VidP1, ref VidP2, ref VidP3, ref VidP4, ref VidM, personatge, AtaP3, RedP2, personatges, ref HB1, ref HB2, ref HB3, ref HB4, ref CountHB, ref auxRedP2); }
+
+                                    break;
+
+                                default:
+                                    Console.WriteLine("Accio no valida."); intents--;
+                                    break;
+                            }
+
+                        } while (act < 1 || act > 3 && intents > 0);
+                        if (intents <= 0) { End(intents, choose); }
+
+                    }
+
+                    else { Console.WriteLine($"El personatge {personatge} esta mort."); }
+
+
+
+
+                }
+
+
+                if (HB1 > 3) { Console.WriteLine(); Console.WriteLine($"El monstre esta noquejat per {personatges[0]}, no por atacar!"); Console.WriteLine(); validateVidasMonstre(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose); }
+                else if (VidM > 0 && HB1 < 3) { AtacMonstre(ref VidP1, ref VidP2, ref VidP3, ref VidP4, ref VidM, AtaP1, AtaP2, AtaP3, AtaP4, AtaM, RedP1, RedP2, RedP3, RedP4, RedM, personatges, copiapersonatges, CountHB, choose); }
+
+                roudValidations(VidP1, VidP2, VidP3, VidP4, VidM, AtaP1, AtaP2, AtaP3, AtaP4, AtaM, RedP1, RedP2, RedP3, RedP4, RedM, personatges, copiapersonatges, ref HB1, ref HB2, ref HB3, ref HB4, ref CountHB, ref auxRedP2);
+                torns++;
+
+            }
+
+
+        }
+
+
         static bool PersonatgeViu(string[] personatges, int VidP1, int VidP2, int VidP3, int VidP4, string personatge)
         {
             for (int i = 0; i < personatges.Length; i++)
