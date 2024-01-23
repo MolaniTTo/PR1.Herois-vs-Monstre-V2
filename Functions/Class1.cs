@@ -78,6 +78,21 @@ namespace Functions
             return dificultat;
         }
 
+        //Facil
+
+        public static void EasyDificult(ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, ref int VidM, ref int AtaP1, ref int AtaP2, ref int AtaP3, ref int AtaP4, ref int AtaM, ref int RedP1, ref int RedP2, ref int RedP3, ref int RedP4, ref int RedM, ref string[] personatges, ref string[] copiapersonatges, ref int choose, ref int atacCritic, ref int fallarAtac)
+        {
+            VidP1 = 2000; VidP2 = 3750; VidP3 = 1500; VidP4 = 2500; VidM = 9000;
+
+            AtaP1 = 300; AtaP2 = 250; AtaP3 = 350; AtaP4 = 120; AtaM = 250;
+
+            RedP1 = 40; RedP2 = 45; RedP3 = 35; RedP4 = 40; RedM = 20;
+
+
+
+        }
+
+
 
 
 
