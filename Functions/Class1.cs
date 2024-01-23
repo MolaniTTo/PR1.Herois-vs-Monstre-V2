@@ -404,6 +404,27 @@ namespace Functions
         }
 
 
+        static void roudValidations(int VidP1, int VidP2, int VidP3, int VidP4, int VidM, int AtaP1, int AtaP2, int AtaP3, int AtaP4, int AtaM, int RedP1, int RedP2, int RedP3, int RedP4, int RedM, string[] personatges, string[] copiapersonatges, ref int HB1, ref int HB2, ref int HB3, ref int HB4, ref int CountHB, ref int auxRedP2)
+        {
+
+            if (RedP1 >= 50 && RedP1 <= 80) { RedP1 /= 2; }
+            if (RedP2 >= 70 && RedP2 <= 90) { RedP2 /= 2; }
+            if (RedP3 >= 40 && RedP3 <= 70) { RedP3 /= 2; }
+            if (RedP4 >= 50 && RedP4 <= 80) { RedP4 /= 2; }
+
+            if (HB1 != 0) { HB1--; }
+            if (HB2 != 0) { HB2--; }
+            if (HB3 != 0) { HB3--; }
+            if (HB4 != 0) { HB4--; }
+
+            if (CountHB >= 1 && CountHB <= 3) { CountHB--; };
+
+
+        }
+
+
+
+
 
 
 
