@@ -496,6 +496,16 @@ namespace Functions
 
         }
 
+        public static int FallarAtac(ref int fallarAtac)
+        {
+            Random rnd = new Random();
+            fallarAtac = rnd.Next(1, 101);
+            return fallarAtac;
+
+
+        }
+
+
 
 
 
