@@ -386,6 +386,24 @@ namespace Functions
 
         }
 
+        static void GenerarOrdreAtac(string[] copiapersonatges)
+        {
+            Random random = new Random();
+
+            // Aplicar el algoritmo de Fisher-Yates
+            for (int i = copiapersonatges.Length - 1; i > 0; i--)
+            {
+                int j = random.Next(0, i + 1);
+
+                // Intercambiar personatges[i] y personatges[j]
+                string temp = copiapersonatges[i];
+                copiapersonatges[i] = copiapersonatges[j];
+                copiapersonatges[j] = temp;
+            }
+
+        }
+
+
 
 
 
