@@ -171,6 +171,33 @@ namespace Functions
         }
 
 
+        //Random
+        public static void Random(ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, ref int VidM, ref int AtaP1, ref int AtaP2, ref int AtaP3, ref int AtaP4, ref int AtaM, ref int RedP1, ref int RedP2, ref int RedP3, ref int RedP4, ref int RedM, ref string[] personatges, ref string[] copiapersonatges, ref int choose, ref int atacCritic, ref int fallarAtac)
+        {
+            Random rnd = new Random();
+            VidP1 = rnd.Next(1500, 2001);
+            VidP2 = rnd.Next(3000, 3751);
+            VidP3 = rnd.Next(1000, 1501);
+            VidP4 = rnd.Next(2000, 2501);
+            VidM = rnd.Next(9000, 12001);
+            AtaP1 = rnd.Next(180, 301);
+            AtaP2 = rnd.Next(150, 251);
+            AtaP3 = rnd.Next(300, 351);
+            AtaP4 = rnd.Next(70, 121);
+            AtaM = rnd.Next(250, 401);
+            RedP1 = rnd.Next(25, 41);
+            RedP2 = rnd.Next(35, 46);
+            RedP3 = rnd.Next(20, 36);
+            RedP4 = rnd.Next(25, 41);
+            RedM = rnd.Next(20, 31);
+
+
+
+        }
+
+
+
+
 
 
 
