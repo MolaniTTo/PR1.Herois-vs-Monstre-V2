@@ -422,6 +422,49 @@ namespace Functions
 
         }
 
+        static void validateVidasHerois(ref int VidM, ref int VidP1, ref int VidP2, ref int VidP3, ref int VidP4, string[] personatges, int choose)
+        {
+            Console.WriteLine();
+            if (VidP1 <= 0) { VidP1 = 0; Console.WriteLine($"Vida restant de {personatges[0]}: {VidP1}, esta mort"); }
+            if (VidP2 <= 0) { VidP2 = 0; Console.WriteLine($"Vida restant de {personatges[1]}: {VidP2}, esta mort"); }
+            if (VidP3 <= 0) { VidP3 = 0; Console.WriteLine($"Vida restant de {personatges[2]}: {VidP3}, esta mort"); }
+            if (VidP4 <= 0) { VidP4 = 0; Console.WriteLine($"Vida restant de {personatges[3]}: {VidP4}, esta mort"); }
+
+            int[] marks = new int[] { VidP1, VidP2, VidP3, VidP4 };
+            for (int i = 0; i < marks.Length - 1; i++)
+            {
+
+                for (int j = i + 1; j < marks.Length; j++)
+                {
+
+                    if (marks[i] < marks[j])
+                    {
+
+                        int aux = marks[i];
+                        marks[i] = marks[j];
+                        marks[j] = aux;
+                    }
+                }
+            }
+
+            for (int i = 0; i < marks.Length; i++)
+            {
+                if (VidP1 > 0 && VidP1 == marks[i]) { Console.WriteLine($"Vida restant de {personatges[0]}: {VidP1}"); }
+                if (VidP2 > 0 && VidP2 == marks[i]) { Console.WriteLine($"Vida restant de {personatges[1]}: {VidP2}"); }
+                if (VidP3 > 0 && VidP3 == marks[i]) { Console.WriteLine($"Vida restant de {personatges[2]}: {VidP3}"); }
+                if (VidP4 > 0 && VidP4 == marks[i]) { Console.WriteLine($"Vida restant de {personatges[3]}: {VidP4}"); }
+            }
+
+
+
+            if (VidP1 == 0 && VidP2 == 0 && VidP3 == 0 && VidP4 == 0) { End(ref VidM, ref VidP1, ref VidP2, ref VidP3, ref VidP4, personatges, choose); }
+
+
+        }
+
+
+
+
 
 
 
